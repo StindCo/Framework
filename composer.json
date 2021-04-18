@@ -14,11 +14,11 @@
     "authors": [
         {
             "name": "Stéphane Ngoyi",
-            "email": "sngoyi5@gmail.com",
+            "email": "sngoyi5@gmail.com"
         },
     ],
     "require": {
-        "php": "^7.3 || ^8.0",
+        "php": "^7.3 || ^8.0"
     },
     "config": {
         "sort-packages": true
