@@ -15,7 +15,7 @@
         {
             "name": "Stéphane Ngoyi",
             "email": "sngoyi5@gmail.com"
-        },
+        }
     ],
     "require": {
         "php": "^7.3 || ^8.0"
