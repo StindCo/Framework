@@ -1,6 +1,36 @@
+
 {
     "name": "stindco/stinder",
-    "description": "Mvc FrameWork",
     "type": "project",
-    "require": {}
+    "description": "Mvc framework",
+    "keywords": [
+        "mvc",
+        "framework",
+        "rest",
+        "orm",
+        "symfony"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stéphane Ngoyi",
+            "email": "sngoyi5@gmail.com",
+        },
+    ],
+    "require": {
+        "php": "^7.3 || ^8.0",
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/"
+        }
+    }
 }
