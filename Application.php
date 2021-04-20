@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace StindCo\stinder;
 
 use StindCo\stinder\Utils\Db as UtilsDb;
 use StindCo\stinder\Utils\EntityManager;
