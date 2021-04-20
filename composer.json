@@ -1,7 +1,7 @@
 {
     "name": "stindco/stinder",
     "description": "Mvc Framework, Orm",
-    "type": "metapackage",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
