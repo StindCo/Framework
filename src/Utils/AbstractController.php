@@ -4,7 +4,6 @@ namespace StindCo\stinder\Utils;
 
 use StindCo\stinder\Interfaces\Controllers;
 use StindCo\stinder\Plugins\SessionManager;
-use StindCo\stinder\Utils\Renderer;
 use StindCo\stinder\Utils\Request;
 use StindCo\stinder\Utils\Router;
 use ReflectionClass;

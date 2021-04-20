@@ -30,7 +30,7 @@ class EntityManager implements EntityManagerInterface
     }
     public function getCustomRepository(String $repository)
     {
-        $classe = "Repositories\\". ucfirst($repository);
+        $classe = "Repositories\\" . ucfirst($repository);
         return new $classe();
     }
     public function getRepository(String $classe)
@@ -43,15 +43,15 @@ class EntityManager implements EntityManagerInterface
         if ($handle = opendir($this->folder)) {
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
-                    $entities[] = "Entities\\".explode(".", $entry)[0];
+                    $entities[] = "Entities\\" . explode(".", $entry)[0];
                 }
             }
             closedir($handle);
         }
-        for ($i=0; $i < count($entities); $i++) { 
+        for ($i = 0; $i < count($entities); $i++) {
             $reflect = new ReflectionClass($entities[$i]);
             $table = $reflect->getDefaultProperties()['table'];
-            if(!$this->is_table($table)) $this->create_database(new $entities[$i]);
+            if (!$this->is_table($table)) $this->create_database(new $entities[$i]);
         }
     }
 
@@ -64,15 +64,14 @@ class EntityManager implements EntityManagerInterface
         $props = $reflect->getProperties(\ReflectionProperty::IS_PUBLIC);
         foreach ($props as $key => $prop) {
             $champ = $prop->getName();
-            $type = ($prop->getType()->getName() == 'string') ? "TEXT" : (($prop->getType()->getName() == 'int')? "INTEGER" : 'blabla');
+            $type = ($prop->getType()->getName() == 'string') ? "TEXT" : (($prop->getType()->getName() == 'int') ? "INTEGER" : 'blabla');
             $text .= "'{$champ}' {$type} ";
-            if($champ == "id") $text .= " NOT NULL PRIMARY KEY AUTOINCREMENT";
-            if($key != count($props) - 1) $text .= ' ,'; 
-                 
+            if ($champ == "id") $text .= " NOT NULL PRIMARY KEY AUTOINCREMENT";
+            if ($key != count($props) - 1) $text .= ' ,';
         }
         $text .= ")";
         $status = $this->db->exec($text);
-       
+
         return $status;
     }
 
@@ -228,7 +227,6 @@ class EntityManager implements EntityManagerInterface
             try {
 
                 $valeur = $prop->getValue($entity);
-                                
             } catch (Exception $e) {
                 echo "hello world";
             }

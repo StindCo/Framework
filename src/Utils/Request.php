@@ -22,7 +22,6 @@ class Request
 		$this->POST_DATA = new Data($_POST);
 		$this->server = new Server(new Data($_SERVER));
 		$this->PUT_DATA = $this->daa();
-
 	}
 	public function set_route_mode($type)
 	{

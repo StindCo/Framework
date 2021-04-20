@@ -12,6 +12,7 @@ class Application
 {
     /**
      * [$container description]
+     * 
      * @var DIC
      */
     public  $container;
@@ -23,7 +24,7 @@ class Application
     public EntityManager $entityManager;
     private String $env = "browser";
     public Request $request;
-    public Array  $dbConfigs = [];
+    public array  $dbConfigs = [];
     public Router $router;
     public array $configs = [];
 
@@ -49,34 +50,34 @@ class Application
      *      Le routage , Le CRUD Routing
      *  =============================================
      */
-    public function otherwise($callback):void
+    public function otherwise($callback): void
     {
         $this->router->otherwise = $callback;
     }
-    public function get($path, $infos):self
+    public function get($path, $infos): self
     {
         $this->router->routes['get'][$path] = $infos;
         return $this;
     }
-    public function post($path, $infos):self
+    public function post($path, $infos): self
     {
         $this->router->routes['post'][$path] = $infos;
         return $this;
     }
 
-    public function delete($path, $infos):self
+    public function delete($path, $infos): self
     {
         $this->router->routes['delete'][$path] = $infos;
         return $this;
     }
 
-    public function update($path, $infos):self
+    public function update($path, $infos): self
     {
         $this->router->routes['update'][$path] = $infos;
         return $this;
     }
 
-    public function put($path, $infos):self
+    public function put($path, $infos): self
     {
         $this->router->routes['put'][$path] = $infos;
         return $this;
@@ -91,15 +92,15 @@ class Application
     /**
      * Lance la configuration, appliques les configurations
      */
-    public function run_configuration():self
+    public function run_configuration(): self
     {
         foreach ($this->configs as $key => $value) {
             $this->$key($value);
         }
         extract($this->dbConfigs);
 
-        $this->database_management($type,$dns, $username, $password);
-        
+        $this->database_management($type, $dns, $username, $password);
+
 
         return $this;
     }
@@ -128,7 +129,8 @@ class Application
         return $this;
     }
 
-    public function entity_folder ($folder) {
+    public function entity_folder($folder)
+    {
         $this->load_entityManager($folder);
     }
     /**
@@ -143,7 +145,7 @@ class Application
     public function database_management($type, $dns = null, $username = null, $password = null): self
     {
         UtilsDb::connect($type, $dns, $username, $password);
-        
+
         return $this;
     }
     /**

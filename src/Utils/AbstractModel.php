@@ -25,8 +25,8 @@ abstract class AbstractModel extends Data
         $attributes = $reflect->getProperties(\ReflectionProperty::IS_PUBLIC);
         for ($i = 0; $i < count($attributes); $i++) {
             $name = $attributes[$i]->getName();
-            if($name == "id" OR $data->$name == null) continue;
-            
+            if ($name == "id" or $data->$name == null) continue;
+
             $this->$name = $data->$name;
         }
         return $this;
